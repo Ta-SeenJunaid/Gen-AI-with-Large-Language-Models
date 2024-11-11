@@ -1,0 +1,30 @@
+name: llama2_finetune
+channels:
+  - pytorch
+  - defaults
+  - conda-forge
+  - nvidia
+  - anaconda
+
+dependencies:
+  - python
+  - pip
+  - cudatoolkit=11.8     # Specify CUDA version
+  - pytorch              # PyTorch with compatibility for CUDA version 11.8
+  - pytorch-cuda=11.8    # Direct CUDA support for PyTorch
+  - torchvision
+  - torchaudio
+  - ipykernel
+  - ipywidgets           # To avoid tqdm warning in Jupyter
+  - numpy=1.24           # Ensure compatibility with packages not yet supporting numpy 2.x
+  - pip:
+      - transformers
+      - datasets
+      - bitsandbytes
+      - accelerate
+      - peft              # Parameter-efficient fine-tuning
+      - sentencepiece     # For tokenization support
+      - tqdm              # For progress bars
+      - scipy             # For additional scientific computations
+      - tensorboard       # For tracking training progress (optional)
+      - trl               # Transformer Reinforcement Learning library for fine-tuning
